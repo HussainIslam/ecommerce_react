@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/ecommerce_react/static/css/main.ec04031d.chunk.css",
+    "main.js": "/ecommerce_react/static/js/main.5f699884.chunk.js",
+    "main.js.map": "/ecommerce_react/static/js/main.5f699884.chunk.js.map",
+    "runtime-main.js": "/ecommerce_react/static/js/runtime-main.f6c02510.js",
+    "runtime-main.js.map": "/ecommerce_react/static/js/runtime-main.f6c02510.js.map",
+    "static/js/2.c76eec0f.chunk.js": "/ecommerce_react/static/js/2.c76eec0f.chunk.js",
+    "static/js/2.c76eec0f.chunk.js.map": "/ecommerce_react/static/js/2.c76eec0f.chunk.js.map",
+    "index.html": "/ecommerce_react/index.html",
+    "precache-manifest.2e1c549ad013fd35e5c4fbccc6efca5d.js": "/ecommerce_react/precache-manifest.2e1c549ad013fd35e5c4fbccc6efca5d.js",
+    "service-worker.js": "/ecommerce_react/service-worker.js",
+    "static/css/main.ec04031d.chunk.css.map": "/ecommerce_react/static/css/main.ec04031d.chunk.css.map",
+    "static/media/crown.ed28accb.svg": "/ecommerce_react/static/media/crown.ed28accb.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f6c02510.js",
+    "static/js/2.c76eec0f.chunk.js",
+    "static/css/main.ec04031d.chunk.css",
+    "static/js/main.5f699884.chunk.js"
+  ]
+}
