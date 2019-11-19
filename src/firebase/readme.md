@@ -19,19 +19,26 @@ You would need a Google account to use Firebase.
 1. Log into your google account
 2. Go to [Firebase Website](https://firebase.google.com)
 3. On the upper-right corner you should see a `Go to Console` button (if you can't find the button just go to this address: [Firebase Console](https://console.firebase.google.com/)). This will load the Firebase console.
-4. Once the console loads, click on the big `Add Project` button. This will open a new modal with the options for adding a project.
-5. Enter a name for the project under `Project name` and press `Continue`
-6. Turn on the features that you want to be added to your Firebase project and click `Continue`
-7. Choose or create a Google analytics Account from the dropdown and click `Create Project` button. This will create a Firebase project and the selected features to it. This may take a few seconds.
-8. After the project is created you should see a message saying that the project is ready. You should also see a `Continue` button, which you should click to proceed.
-9. You will be redirected to the project dashboard, where under the `Project Overview` section, you will be able to see the main services that Firebase can provide for the developers.
+![Firebase Console](https://github.com/HussainIslam/ecommerce_react/blob/master/src/firebase/screenshots/step_3.png)
+1. Once the console loads, click on the big `Add Project` button. This will open a new modal with the options for adding a project.
+![Add Project](https://github.com/HussainIslam/ecommerce_react/blob/master/src/firebase/screenshots/step_4.png)
+1. Enter a name for the project under `Project name` and press `Continue`
+![Project Name](https://github.com/HussainIslam/ecommerce_react/blob/master/src/firebase/screenshots/step_5.png)
+1. Turn on the features that you want to be added to your Firebase project and click `Continue`
+![](https://github.com/HussainIslam/ecommerce_react/blob/master/src/firebase/screenshots/step_6.png)
+2. Choose or create a Google analytics Account from the dropdown and click `Create Project` button. This will create a Firebase project and the selected features to it. This may take a few seconds.
+![Create Project](https://github.com/HussainIslam/ecommerce_react/blob/master/src/firebase/screenshots/step_7.png)
+3. After the project is created you should see a message saying that the project is ready. You should also see a `Continue` button, which you should click to proceed.
+4.  You will be redirected to the project dashboard, where under the `Project Overview` section, you will be able to see the main services that Firebase can provide for the developers.
+![](https://github.com/HussainIslam/ecommerce_react/blob/master/src/firebase/screenshots/step_9.png)
 
 ## Adding an Application to Firebase Project
 1. Once on the Project dashboard, you should see some buttons to add iOS, Android, and Web applications to the project. This may look like following:
-![Add Application](https://i5.walmartimages.ca/images/Enlarge/094/514/6000200094514.jpg)
-2. Click on `Web` button (as we are using Firebase for a web application. If you are using Firebase for any other type of application, you can choose respective option).
-3. Enter a nickname for your application and click `Register App` button. 
-4. You will provided some information that you can use in your application to connect to Firebase. The information may look like:
+![Add Application](https://github.com/HussainIslam/ecommerce_react/blob/master/src/firebase/screenshots/add_step_1.png)
+1. Click on `Web` button (as we are using Firebase for a web application. If you are using Firebase for any other type of application, you can choose respective option).
+2. Enter a nickname for your application and click `Register App` button. 
+![](https://github.com/HussainIslam/ecommerce_react/blob/master/src/firebase/screenshots/add_app_step_2.png)
+3. You will provided some information that you can use in your application to connect to Firebase. The information may look like:
 ```javascript
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
