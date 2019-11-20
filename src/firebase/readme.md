@@ -238,3 +238,56 @@ componentDidMount(){
     })
 }
 ```
+## Sign-up Using Email and Password
+1. In the component that is going to handle the sign-up, import `auth` and `createUserProfileDocument` from the Firebase utility file.
+    `import { auth, createUserProfileDocument } from "../../firebase/firebase.utils"`
+2. Add the `state` that is going to store what the user is going to type in.
+    ```js
+    this.state = {
+        displayName: '',
+        email: '',
+        password: '',
+        confirmPassword: ''
+    }
+    ```
+3. In the form element for signing up, I invoked another method that did most of the heavy lifting. We add the function in form element like this: <br>
+    `<form className='sign-up-form' onSubmit={ this.handleSubmit }>`
+4. The `handleSubmit` function has to be an `async` function because it will be creating and updating the database asynchronously. Within the function, first, we need to prevent the default behavior of the `click` using `event.preventDefault()` method. Then we destructure the `this.state`. After that we need to validate that both `password` and `confirmPassword` are same before we proceed with the program. Then we need to enclose the user creation and storing process within a `try...catch` block to make sure our program doesn't break if there is an error while creating or storing the user information. Then we asynchronously call the `auth.createUserWithEmailAndPassword()` function. This function takes in two parameters `email` and `password` and returns an `user` object. After this, we need to call the `createUserProfileDocument()` method that we created in our Firebase utility file. We will pass in two parameters to the function: the user object that we just received, and the `displayName`. After this is done, we just reset the `this.state` to be blank.
+_Note: Enable the Email and Password option from Firebase, like we enabled our Google Sign In option_
+```js
+handleSubmit = async event => {
+    event.preventDefault();
+    const { displayName, email, password, confirmPassword } = this.state;
+    if (password !== confirmPassword ){
+        alert("Passwords don't match");
+        return;
+    }
+    try{
+        const { user } = await auth.createUserWithEmailAndPassword(email, password);
+        await createUserProfileDocument(user, { displayName });
+        this.setState({
+            displayName: '',
+            email: '',
+            password: '',
+            confirmPassword: ''
+        })
+    } catch(error){
+        console.log(error);
+    }
+};
+```
+5. In the component that handles the sign-in, we first need to import the `auth` library, like we did before.
+6. We also need to implement Sign-in method to make sure user can sign-in using email and password. We can do this using the `handleSubmit()` method in the component that handles sign in. Similar the `handleSubmit()` method in sign-up, this method has to be an asynchronous function and we need to call the `preventDefault()` function at the very beginning. We then destructure the `this.state`. The main signin function that we are going to use is `auth.signInWithEmailAndPassword()`, which is enclosed in a `try...catch` block and receives two parameters: `email` and `password`. After that we reset the input fields.
+```js
+handleSubmit = async event => {
+    event.preventDefault();
+    const { email, password } = this.state;
+    try {
+        await auth.signInWithEmailAndPassword(email, password);
+        this.setState({ email: '', password: '' })
+    } catch (error) {
+        console.log(error);
+    }
+    this.setState({ email: '', password: '' })
+}
+```
