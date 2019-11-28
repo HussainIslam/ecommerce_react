@@ -123,3 +123,52 @@ const mapDispatchToProps = dispatch => ({
 ```js
 this.props.setCurrentUser();
 ```
+
+
+# Using LocalStorage and SessionStorage to Persist Reducer data
+1. Install a new dependency called '[redux-persist](https://github.com/rt2zz/redux-persist)' to use local/session storage
+    `npm install -save redux-persist`
+2. Import `persistStore` from `redux-persist` in the `store.js` file, which works as the redux Store.
+    `import { persistStore } from 'redux-persist'`
+3. Create a new function called `persistor` which calls the `persistStore()` function and passes in the store already created using `createStore`
+    `const persistor = persistStore(store)`
+4. Then we need to export the new `persistor` from the `store.js` file
+    `export { store, persistor }`
+5. Import `persistReducer` from the `redux-persist` in our `root-reducer.js`
+    `import { persistReducer } from 'redux-persist'`
+6. We need to decide whether we will be using localStorage or sessionStorage. If we decide to use localStorage, we need to import:
+    `import storage from 'redux-persist/lib/storage'`
+    If we decide to use sessionStorage, we need to import:
+    `import storageSession from 'redux-persist/lib/storage/session'`
+7. We need to write a new config for the redux-persist:
+    ```js
+    const persistConfig = {
+        key: 'root',
+        storage,
+        whitelist: ['cart']     //reducers that are going to use the persist
+    }
+    ```
+8. We need to change the default export to a new function that has the the `combineReducers` function
+    ```js
+    const rootReducer = combineReducers({
+        user: userReducer,
+        cart: cartReducer
+    });
+    ```
+9. Then we need to export these two function after passing through `persistReducer`
+    `export default persistReducer(persistConfig, rootReducer)`
+10. Import `PersistGate` in `index.js`
+    `import { PersistGate } from 'redux-persist/integration/react'`
+11. Import the `persistor` and `store` from the `store.js` file
+    `import { store, persistor } from './redux/store'`
+12. Wrap the `App` component in `index.js` with the `PersistGate`
+    ```html
+    <Provider store={ store }>
+        <BrowserRouter>
+            <PersistGate persistor={ persistor }>
+                <App />
+            </PersistGate>
+        </BrowserRouter>
+    </Provider>
+    ```
+
